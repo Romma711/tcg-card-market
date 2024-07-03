@@ -1,0 +1,91 @@
+---
+import NavBar from '../components/NavBar.astro';
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header>
+			<div class="sign-in">
+				<a href="" class="a-button">INICIAR SESION O REGISTRARSE</a>
+			</div>
+			<NavBar />
+		</header>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+
+	body{
+			margin: 0;
+			padding: 0;
+
+	}
+
+	a{
+		color:antiquewhite;
+		text-decoration: none;
+	}
+
+	header{
+		background-color: blueviolet;
+		width: 100vw;
+		height: 120px;
+		display: block;
+		color: white;
+	}
+
+	.sign-in{
+		background-color: rgb(104, 23, 180);
+		height: 36px;
+		display: block;
+	}
+	.a-button{
+		position: relative;
+		top: 6px;
+		left: 67vw;
+		padding: 2px 13px;
+		border: 1px solid;
+		border-radius: 30px;
+	}
+</style>
